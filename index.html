@@ -1,0 +1,469 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2575.4">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="zh-Hant"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;AI 智能育兒助理與大腦發展指南&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script src="https://cdn.jsdelivr.net/npm/chart.js"&gt;&lt;/script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;link rel="preconnect" href="https://fonts.gstatic.com" crossorigin&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Noto+Sans+TC:wght@400;500;700&amp;display=swap" rel="stylesheet"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>body {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-family: 'Inter', 'Noto Sans TC', sans-serif;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.chart-container {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: relative;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>max-width: 800px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-left: auto;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-right: auto;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: 300px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>max-height: 400px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>@media (min-width: 768px) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>.chart-container {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>height: 400px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.nav-link {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transition: all 0.3s ease;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.nav-link.active {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #0d9488;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-bottom-color: #0d9488;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.fade-in {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>animation: fadeIn 0.5s ease-in-out;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>@keyframes fadeIn {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>from { opacity: 0; transform: translateY(10px); }</p>
+<p class="p1"><span class="Apple-converted-space">            </span>to { opacity: 1; transform: translateY(0); }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.spinner {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: 4px solid rgba(0, 0, 0, 0.1);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 36px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: 36px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 50%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-left-color: #06b6d4;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>animation: spin 1s ease infinite;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.ai-result-box {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>white-space: pre-wrap;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>line-height: 1.7;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body class="bg-stone-50 text-stone-800"&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="app" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8"&gt;</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;header class="text-center mb-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h1 class="text-3xl md:text-4xl font-bold text-teal-700"&gt;AI 智能育兒助理與大腦發展指南&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="mt-2 text-lg text-stone-600"&gt;一份結合腦科學與 AI 的現代父母互動手冊&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/header&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;nav class="mb-8 border-b border-stone-200 sticky top-0 bg-stone-50/80 backdrop-blur-sm z-10"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;ul class="flex flex-wrap justify-center -mb-px text-sm font-medium text-center text-stone-500"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;li class="mr-2"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;a href="#home" class="nav-link inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-teal-600 hover:border-teal-300"&gt;🏠 首頁&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;li class="mr-2"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;a href="#blueprint" class="nav-link inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-teal-600 hover:border-teal-300"&gt;🧠 發展藍圖&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;li class="mr-2"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;a href="#milestones" class="nav-link inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-teal-600 hover:border-teal-300"&gt;🌱 里程碑&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;li class="mr-2"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;a href="#toolkit" class="nav-link inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-teal-600 hover:border-teal-300"&gt;🧰 工具箱&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;a href="#ai-assistant" class="nav-link inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-teal-600 hover:border-teal-300"&gt;🤖 AI 育兒助理&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/nav&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;main&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;section id="home" class="page-content fade-in"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="bg-white rounded-lg shadow-md p-6 md:p-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h2 class="text-2xl font-bold text-teal-700 mb-4"&gt;歡迎！成為孩子的「大腦建築師」&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="text-stone-600 mb-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>孩子的成長並非雜亂無章，而是遵循著大腦發展的藍圖。這份指南旨在提供一套「識腦、順腦、育腦」的實用策略。我們將複雜的科學知識，轉化為您可以輕鬆理解和應用的工具，幫助您從容應對育兒挑戰，引導孩子走上獨一無二的成長之路。</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="text-stone-600 mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>我們的目標是 **引導，而非僵化的預測**。理解發展的普遍規律，是為了更好地欣賞您孩子的獨特步伐。</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/p&gt;</p>
+<p class="p2"><span class="Apple-converted-space">                    </span></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="bg-teal-50 border-l-4 border-teal-500 text-teal-800 p-4 rounded-r-lg" role="alert"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h3 class="font-bold text-lg mb-2"&gt;核心概念：樓上大腦 vs 樓下大腦&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="mb-2"&gt;這是一個非常實用的大腦比喻，幫助我們理解孩子的情緒風暴：&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;ul class="list-disc list-inside space-y-1"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;li&gt;&lt;strong class="text-teal-700"&gt;樓上大腦 (理智腦):&lt;/strong&gt; 負責思考、計畫、解決問題和情緒調節。它在整個童年期持續發展，像個「見習CEO」。&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;li&gt;&lt;strong class="text-amber-700"&gt;樓下大腦 (情緒腦):&lt;/strong&gt; 負責基本生存本能、強烈情緒和衝動反應。&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="mt-3"&gt;當孩子情緒失控時，就像「樓下大腦」佔據了主導，通往「樓上大腦」的樓梯暫時中斷了。我們的任務是先連結、安撫「樓下」，再引導「樓上」重新上線工作。&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="bg-white rounded-lg shadow-md p-6 md:p-8 mt-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h3 class="text-2xl font-bold text-teal-700 mb-4"&gt;大腦功能的成熟曲線&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="text-stone-600 mb-4"&gt;不同的大腦功能有不同的發展黃金期。下圖呈現了從出生到青少年期，各項核心功能的相對成熟度趨勢，幫助您理解在不同階段，孩子的能力發展重點。&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="chart-container"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;canvas id="brainDevChart"&gt;&lt;/canvas&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;section id="blueprint" class="page-content hidden fade-in"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="bg-white rounded-lg shadow-md p-6 md:p-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h2 class="text-2xl font-bold text-teal-700 mb-2"&gt;大腦的黃金列車：三大關鍵發展期&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="text-stone-600 mb-6"&gt;孩子的成長遵循著可預測的軌跡。了解這三個黃金發展期，能讓您更有效地提供支持。&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="space-y-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="p-5 border border-amber-200 rounded-lg bg-amber-50"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;h3 class="text-xl font-bold text-amber-800"&gt;0-3歲：感官與安全的奠基期&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;p class="mt-1 text-sm text-amber-700"&gt;大腦關鍵字：突觸連結爆炸性增長、安全感建立、感官探索&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="mt-4 grid md:grid-cols-2 gap-4 text-sm"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;div&gt;&lt;h4 class="font-semibold text-stone-700"&gt;父母任務：&lt;/h4&gt;&lt;ul class="list-disc list-inside mt-1 text-stone-600"&gt;&lt;li&gt;提供豐富的感官刺激&lt;/li&gt;&lt;li&gt;建立穩定的依附關係&lt;/li&gt;&lt;li&gt;大量溫暖的身體接觸&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;div&gt;&lt;h4 class="font-semibold text-stone-700"&gt;常見行為解碼：&lt;/h4&gt;&lt;ul class="list-disc list-inside mt-1 text-stone-600"&gt;&lt;li&gt;什麼東西都放嘴巴？➡️ 透過口腔探索世界&lt;/li&gt;&lt;li&gt;為何分離會焦慮？➡️ 正在建立依附關係&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="p-5 border border-sky-200 rounded-lg bg-sky-50"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;h3 class="text-xl font-bold text-sky-800"&gt;3-6歲：情緒與社交的萌芽期&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;p class="mt-1 text-sm text-sky-700"&gt;大腦關鍵字：情緒腦快速發展、自我中心、想像力噴發&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                             </span>&lt;div class="mt-4 grid md:grid-cols-2 gap-4 text-sm"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;div&gt;&lt;h4 class="font-semibold text-stone-700"&gt;父母任務：&lt;/h4&gt;&lt;ul class="list-disc list-inside mt-1 text-stone-600"&gt;&lt;li&gt;幫助孩子命名情緒&lt;/li&gt;&lt;li&gt;建立同理心&lt;/li&gt;&lt;li&gt;提供大量遊戲與社交機會&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;div&gt;&lt;h4 class="font-semibold text-stone-700"&gt;常見行為解碼：&lt;/h4&gt;&lt;ul class="list-disc list-inside mt-1 text-stone-600"&gt;&lt;li&gt;為何愛說「不要」？➡️ 自我意識的萌芽&lt;/li&gt;&lt;li&gt;為何有想像中的朋友？➡️ 想像力豐富的表現&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="p-5 border border-emerald-200 rounded-lg bg-emerald-50"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;h3 class="text-xl font-bold text-emerald-800"&gt;7-10歲：邏輯與學習的整合期&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;p class="mt-1 text-sm text-emerald-700"&gt;大腦關鍵字：理智腦（前額葉）開始成熟、邏輯思維、專注力發展&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                             </span>&lt;div class="mt-4 grid md:grid-cols-2 gap-4 text-sm"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;div&gt;&lt;h4 class="font-semibold text-stone-700"&gt;父母任務：&lt;/h4&gt;&lt;ul class="list-disc list-inside mt-1 text-stone-600"&gt;&lt;li&gt;引導解決問題&lt;/li&gt;&lt;li&gt;建立閱讀習慣&lt;/li&gt;&lt;li&gt;培養責任感&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;div&gt;&lt;h4 class="font-semibold text-stone-700"&gt;常見行為解碼：&lt;/h4&gt;&lt;ul class="list-disc list-inside mt-1 text-stone-600"&gt;&lt;li&gt;為何開始愛問「為什麼」？➡️ 邏輯思維的展現&lt;/li&gt;&lt;li&gt;為何能進行更複雜的遊戲？➡️ 執行功能提升&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;section id="milestones" class="page-content hidden fade-in"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="bg-white rounded-lg shadow-md p-6 md:p-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h2 class="text-2xl font-bold text-teal-700 mb-2"&gt;互動式成長里程碑&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="text-stone-600 mb-6"&gt;選擇孩子的年齡範圍，查看該階段在各個領域的典型發展里程碑。請記住，每個孩子都有自己的步調，這份列表僅作為參考。&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div id="milestone-selector" class="flex flex-wrap justify-center gap-2 mb-6"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div id="milestone-display" class="mt-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;section id="toolkit" class="page-content hidden fade-in"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                 </span>&lt;div class="bg-white rounded-lg shadow-md p-6 md:p-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h2 class="text-2xl font-bold text-teal-700 mb-2"&gt;育兒工具箱：日常高效能互動法&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="text-stone-600 mb-6"&gt;這裡提供一些基於腦科學的實用工具，幫助您在日常互動中培育孩子的大腦潛能。&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="space-y-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;h3 class="text-xl font-bold text-stone-700 mb-4"&gt;🎲 啟動大腦的遊戲：促進執行功能&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="flex flex-wrap gap-2 mb-4" id="game-filters"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div id="game-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                           </span>&lt;h3 class="text-xl font-bold text-stone-700 mb-4"&gt;🍎 健腦飲食：為大腦發展提供燃料&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                           </span>&lt;div id="nutrition-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;h3 class="text-xl font-bold text-stone-700 mb-4"&gt;❤️ 情緒教練：處理孩子的巨大情緒&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="space-y-3"&gt;&lt;div class="flex items-start"&gt;&lt;span class="bg-teal-500 text-white rounded-full h-6 w-6 text-sm flex items-center justify-center mr-3 font-bold flex-shrink-0"&gt;1&lt;/span&gt;&lt;div&gt;&lt;strong class="text-teal-700"&gt;覺察：&lt;/strong&gt;留意孩子細微的情緒變化。&lt;/div&gt;&lt;/div&gt;&lt;div class="flex items-start"&gt;&lt;span class="bg-teal-500 text-white rounded-full h-6 w-6 text-sm flex items-center justify-center mr-3 font-bold flex-shrink-0"&gt;2&lt;/span&gt;&lt;div&gt;&lt;strong class="text-teal-700"&gt;連結：&lt;/strong&gt;將情緒表達視為教導的機會，而非麻煩。&lt;/div&gt;&lt;/div&gt;&lt;div class="flex items-start"&gt;&lt;span class="bg-teal-500 text-white rounded-full h-6 w-6 text-sm flex items-center justify-center mr-3 font-bold flex-shrink-0"&gt;3&lt;/span&gt;&lt;div&gt;&lt;strong class="text-teal-700"&gt;傾聽：&lt;/strong&gt;同理並確認孩子的感受，如「我知道你很生氣，因為...」。&lt;/div&gt;&lt;/div&gt;&lt;div class="flex items-start"&gt;&lt;span class="bg-teal-500 text-white rounded-full h-6 w-6 text-sm flex items-center justify-center mr-3 font-bold flex-shrink-0"&gt;4&lt;/span&gt;&lt;div&gt;&lt;strong class="text-teal-700"&gt;命名：&lt;/strong&gt;幫助孩子為情緒命名，如「你是不是覺得很失望？」。&lt;/div&gt;&lt;/div&gt;&lt;div class="flex items-start"&gt;&lt;span class="bg-teal-500 text-white rounded-full h-6 w-6 text-sm flex items-center justify-center mr-3 font-bold flex-shrink-0"&gt;5&lt;/span&gt;&lt;div&gt;&lt;strong class="text-teal-700"&gt;引導：&lt;/strong&gt;設定行為界限，同時引導孩子思考解決問題的方法。&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                 </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;section id="ai-assistant" class="page-content hidden fade-in"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="bg-white rounded-lg shadow-md p-6 md:p-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h2 class="text-2xl font-bold text-teal-700 mb-2 text-center"&gt;🤖 AI 智能育兒助理&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="text-stone-600 mb-8 text-center max-w-2xl mx-auto"&gt;您的隨身育兒顧問。無論是棘手的行為問題，還是尋找活動靈感，AI 都能為您提供基於發展科學的個人化建議。&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="space-y-10 max-w-3xl mx-auto"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;!-- Feature 1: Scenario Advisor --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="border border-gray-200 rounded-lg p-6 bg-gray-50/50"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;h3 class="text-xl font-bold text-stone-800 mb-3 text-center"&gt;✨ 情境解讀與策略建議&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;p class="text-center text-stone-600 mb-4 text-sm"&gt;遇到育兒挑戰？具體描述您遇到的情境，AI 將運用「全腦教養法」原則為您分析並提供應對策略。&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;textarea id="scenario-input" rows="4" class="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition" placeholder="例如：我4歲的孩子每次離開公園都要大哭大鬧，完全不肯走..."&gt;&lt;/textarea&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="text-center mt-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;button id="get-scenario-advice" class="bg-teal-600 hover:bg-teal-700 text-white font-bold py-2 px-6 rounded-lg shadow-md transition-transform duration-200 hover:scale-105"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                    </span>取得 AI 建議</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div id="scenario-loader" class="hidden mt-4 flex justify-center items-center flex-col"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;div class="spinner"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p class="text-center text-gray-500 text-sm mt-2"&gt;AI 育兒顧問正在為您思考中，請稍候...&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div id="scenario-result" class="ai-result-box hidden mt-4 bg-teal-50 border border-teal-200 p-4 rounded-md text-stone-700"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;!-- Feature 2: Activity Generator --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="border border-gray-200 rounded-lg p-6 bg-gray-50/50"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;h3 class="text-xl font-bold text-stone-800 mb-3 text-center"&gt;✨ 親子活動創意坊&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;p class="text-center text-stone-600 mb-4 text-sm"&gt;為您的孩子尋找有趣的活動靈感！選擇年齡和想促進的能力，讓 AI 為您生成專屬的親子活動。&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;label for="activity-age" class="block text-sm font-medium text-gray-700 mb-1"&gt;孩子年齡：&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;select id="activity-age" class="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                        </span>&lt;option value="1-2歲"&gt;1-2歲&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                        </span>&lt;option value="3-4歲" selected&gt;3-4歲&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                        </span>&lt;option value="5-6歲"&gt;5-6歲&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                        </span>&lt;option value="7-8歲"&gt;7-8歲&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                        </span>&lt;option value="9-10歲"&gt;9-10歲&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;/select&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;label for="activity-skill" class="block text-sm font-medium text-gray-700 mb-1"&gt;想促進的能力：&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;select id="activity-skill" class="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                        </span>&lt;option value="精細動作"&gt;精細動作&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                        </span>&lt;option value="大肌肉發展"&gt;大肌肉發展&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                        </span>&lt;option value="語言能力"&gt;語言能力&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                        </span>&lt;option value="社交情緒"&gt;社交情緒&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                        </span>&lt;option value="解決問題能力"&gt;解決問題能力&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;/select&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                             </span>&lt;div class="text-center mt-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;button id="get-activity-ideas" class="bg-teal-600 hover:bg-teal-700 text-white font-bold py-2 px-6 rounded-lg shadow-md transition-transform duration-200 hover:scale-105"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                    </span>生成活動點子</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div id="activity-loader" class="hidden mt-4 flex justify-center items-center flex-col"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;div class="spinner"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                 </span>&lt;p class="text-center text-gray-500 text-sm mt-2"&gt;AI 創意總監正在發想中，請稍候...&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div id="activity-result" class="ai-result-box hidden mt-4 bg-teal-50 border border-teal-200 p-4 rounded-md text-stone-700"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/section&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/main&gt;</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;footer class="text-center mt-12 text-sm text-stone-500"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;本指南內容根據兒童發展科學研究整理，僅供參考。&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;每個孩子都是獨一無二的，請以愛與耐心，欣賞他們的成長步調。&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/footer&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.addEventListener('DOMContentLoaded', () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const pages = document.querySelectorAll('.page-content');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const navLinks = document.querySelectorAll('.nav-link');</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>const data = {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>milestones: {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>"0-1": { label: "0-1歲", color: "amber", categories: { "認知": ["追視移動物體", "對環境好奇", "理解物體恆存", "模仿簡單動作"], "語言": ["發出咕咕聲", "對名字有反應", "說出第一個詞"], "社交情緒": ["對人微笑", "認得熟悉的人", "出現怕生現象"], "動作": ["能抬頭、翻身", "能不扶東西坐穩", "扶著東西站起來", "用拇指和食指撿拾小物"] }},</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>"1-2": { label: "1-2歲", color: "amber", categories: { "認知": ["模仿大人做家事", "會玩一個以上的玩具", "拿筆亂塗鴉"], "語言": ["詞彙量快速增加", "說出雙詞片語", "遵從簡單指令"], "社交情緒": ["有分離焦慮", "對其他孩子感興趣", "展現初步同理心"], "動作": ["獨立行走", "嘗試用湯匙吃飯", "跑、爬樓梯"] }},</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>"2-3": { label: "2-3歲", color: "sky", categories: { "認知": ["遵從兩步驟指令", "玩簡單假想遊戲", "將形狀配對"], "語言": ["說出多詞句子", "愛問為什麼", "大部分話能被聽懂"], "社交情緒": ["加入其他孩子玩", "表達廣泛情緒", "能短暫離開照顧者"], "動作": ["跑得很好", "能踢球", "能雙腳跳", "自己脫掉部分衣物"] }},</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>"3-6": { label: "3-6歲", color: "sky", categories: { "認知": ["理解「一樣/不一樣」", "玩假想遊戲更有創意", "能數到10"], "語言": ["使用更長句子", "清楚講述簡單故事", "能被陌生人理解"], "社交情緒": ["合作玩遊戲、輪流", "表達對朋友的喜愛", "更能遵守規則"], "動作": ["能踩三輪車", "單腳站立幾秒", "使用剪刀", "學習盪鞦韆"] }},</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>"6-10": { label: "6-10歲", color: "emerald", categories: { "認知": ["開始邏輯思考", "理解守恆概念", "能進行簡單分類排序", "注意力時間增長"], "語言": ["詞彙量大增", "流暢閱讀", "書寫句子更完整", "理解複雜語法"], "社交情緒": ["友誼更重要", "有是非對錯觀念", "更能控制情緒", "同理心發展更成熟"], "動作": ["跑跳更協調", "學習騎腳踏車", "運筆更靈活", "參與有組織的體育活動"] }}</p>
+<p class="p1"><span class="Apple-converted-space">                </span>},</p>
+<p class="p1"><span class="Apple-converted-space">                </span>games: [</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>{ name: "紅綠燈", age: "3-5", skill: "inhibition", desc: "聽到「紅燈」停止，「綠燈」前進，可加入變奏規則挑戰反應抑制。" },</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>{ name: "老師說", age: "3-5", skill: "inhibition", desc: "只有當指令前有「老師說」時才執行動作，訓練仔細聆聽並控制衝動。" },</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>{ name: "故事接龍", age: "6-8", skill: "memory", desc: "每人輪流為故事加一句，需重複前面所有內容，鍛鍊聽覺記憶。" },</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>{ name: "記憶配對遊戲", age: "3-5", skill: "memory", desc: "經典的翻牌配對遊戲，能鍛鍊視覺工作記憶能力。" },</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>{ name: "冷凍人跳舞", age: "3-5", skill: "inhibition", desc: "音樂播放時跳舞，音樂停止時立刻凍結不動，培養瞬間停止的慾望。" },</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>{ name: "相反遊戲", age: "6-8", skill: "flexibility", desc: "孩子需做出與指令相反的動作，促進快速思考與彈性應對。" },</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>{ name: "分類遊戲", age: "3-5", skill: "flexibility", desc: "先依顏色分類，再轉換規則依形狀分類，訓練孩子調整思維模式。" },</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>{ name: "一物多用", age: "8-10", skill: "flexibility", desc: "針對一個常見物品，思考其多種不同用途，激發創意思考。" },</p>
+<p class="p1"><span class="Apple-converted-space">                </span>],</p>
+<p class="p1"><span class="Apple-converted-space">                </span>nutrition: [</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>{ name: "深海魚", emoji: "🐟", nutrients: "Omega-3 (DHA)", benefits: "構成大腦結構、助學習" },</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>{ name: "雞蛋", emoji: "🥚", nutrients: "膽鹼、蛋白質", benefits: "助記憶、細胞建構" },</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>{ name: "牛肉", emoji: "🥩", nutrients: "鐵質、鋅質", benefits: "助神經發展、氧氣運輸" },</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>{ name: "菠菜", emoji: "🥬", nutrients: "葉酸、鐵質", benefits: "助細胞生長、大腦健康" },</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>{ name: "核桃", emoji: "🌰", nutrients: "Omega-3", benefits: "支持認知發展" },</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>{ name: "豆製品", emoji: "🫘", nutrients: "蛋白質、葉酸", benefits: "提供細胞建構原料" },</p>
+<p class="p1"><span class="Apple-converted-space">                </span>]</p>
+<p class="p1"><span class="Apple-converted-space">            </span>};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>const navigate = (hash) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>pages.forEach(page =&gt; page.classList.add('hidden'));</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const targetPage = document.querySelector(hash);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (targetPage) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>targetPage.classList.remove('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>document.querySelector('#home').classList.remove('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}</p>
+<p class="p1"><span class="Apple-converted-space">                </span>navLinks.forEach(link =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>link.classList.toggle('active', link.getAttribute('href') === hash);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>});</p>
+<p class="p1"><span class="Apple-converted-space">                </span>window.scrollTo(0, 0);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>};</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>navLinks.forEach(link =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>link.addEventListener('click', (e) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>e.preventDefault();</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>window.location.hash = e.currentTarget.getAttribute('href');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>});</p>
+<p class="p1"><span class="Apple-converted-space">            </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>window.addEventListener('hashchange', () =&gt; navigate(window.location.hash || '#home'));</p>
+<p class="p1"><span class="Apple-converted-space">            </span>navigate(window.location.hash || '#home');</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>const renderMilestones = (ageGroupKey) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const display = document.getElementById('milestone-display');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>display.innerHTML = '';</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const { categories, color } = data.milestones[ageGroupKey];</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const icons = {"認知":"💡", "語言":"💬", "社交情緒":"❤️", "動作":"🤸"};</p>
+<p class="p1"><span class="Apple-converted-space">                </span>for (const category in categories) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>const card = document.createElement('div');</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>card.className = `bg-${color}-50 border border-${color}-200 rounded-lg p-4 fade-in`;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>let itemsHTML = categories[category].map(item =&gt; `&lt;li class="text-stone-600 text-sm"&gt;${item}&lt;/li&gt;`).join('');</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>card.innerHTML = `&lt;h4 class="font-bold text-lg text-${color}-800 flex items-center"&gt;${icons[category] || '🔹'} &lt;span class="ml-2"&gt;${category}&lt;/span&gt;&lt;/h4&gt;&lt;ul class="list-disc list-inside mt-2 space-y-1"&gt;${itemsHTML}&lt;/ul&gt;`;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>display.appendChild(card);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>};</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>const milestoneSelector = document.getElementById('milestone-selector');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>Object.keys(data.milestones).forEach((key, index) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const button = document.createElement('button');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>button.dataset.age = key;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>button.textContent = data.milestones[key].label;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>button.className = `milestone-btn px-4 py-2 rounded-full text-sm font-medium transition-colors bg-stone-200 text-stone-700 hover:bg-teal-500 hover:text-white`;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if(index === 0) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>button.classList.add('active', 'bg-teal-600', 'text-white');</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>button.classList.remove('bg-stone-200', 'text-stone-700');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}</p>
+<p class="p1"><span class="Apple-converted-space">                </span>milestoneSelector.appendChild(button);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>});</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>milestoneSelector.addEventListener('click', (e) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (e.target.matches('.milestone-btn')) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>milestoneSelector.querySelectorAll('.milestone-btn').forEach(btn =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>btn.classList.remove('active', 'bg-teal-600', 'text-white');</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>btn.classList.add('bg-stone-200', 'text-stone-700');</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>});</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>e.target.classList.add('active', 'bg-teal-600', 'text-white');</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>renderMilestones(e.target.dataset.age);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>});</p>
+<p class="p1"><span class="Apple-converted-space">            </span>renderMilestones(Object.keys(data.milestones)[0]);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>const gameGrid = document.getElementById('game-grid');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const renderGames = (filters) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>gameGrid.innerHTML = '';</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const filteredGames = data.games.filter(game =&gt; filters.includes('all') || filters.some(filter =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>const [type, value] = filter.split(':');</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>return (type === 'age' &amp;&amp; game.age === value) || (type === 'skill' &amp;&amp; game.skill === value);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}));</p>
+<p class="p2"><span class="Apple-converted-space">                </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>filteredGames.forEach(game =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>const card = document.createElement('div');</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>card.className = 'bg-white border border-stone-200 rounded-lg p-4 fade-in';</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>card.innerHTML = `&lt;h4 class="font-bold text-md text-stone-800"&gt;${game.name}&lt;/h4&gt;&lt;div class="flex gap-2 my-2"&gt;&lt;span class="text-xs font-medium bg-sky-100 text-sky-800 px-2 py-0.5 rounded-full"&gt;${game.age}歲&lt;/span&gt;&lt;span class="text-xs font-medium bg-amber-100 text-amber-800 px-2 py-0.5 rounded-full"&gt;${{memory:'工作記憶',inhibition:'抑制控制',flexibility:'認知彈性'}[game.skill]}&lt;/span&gt;&lt;/div&gt;&lt;p class="text-sm text-stone-600"&gt;${game.desc}&lt;/p&gt;`;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>gameGrid.appendChild(card);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>});</p>
+<p class="p1"><span class="Apple-converted-space">            </span>};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>const gameFilters = document.getElementById('game-filters');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>gameFilters.innerHTML = `</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;button data-filter="all" class="game-filter-btn bg-teal-600 text-white px-4 py-2 rounded-full text-sm"&gt;全部&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;button data-filter="age:3-5" class="game-filter-btn bg-stone-200 text-stone-700 px-4 py-2 rounded-full text-sm"&gt;3-5歲&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;button data-filter="age:6-8" class="game-filter-btn bg-stone-200 text-stone-700 px-4 py-2 rounded-full text-sm"&gt;6-8歲&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;button data-filter="age:8-10" class="game-filter-btn bg-stone-200 text-stone-700 px-4 py-2 rounded-full text-sm"&gt;8-10歲&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>`;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>let activeGameFilters = ['all'];</p>
+<p class="p1"><span class="Apple-converted-space">            </span>gameFilters.addEventListener('click', e =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (e.target.tagName !== 'BUTTON') return;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const filter = e.target.dataset.filter;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>activeGameFilters = [filter];</p>
+<p class="p1"><span class="Apple-converted-space">                </span>gameFilters.querySelectorAll('button').forEach(btn =&gt; btn.classList.toggle('bg-teal-600', activeGameFilters.includes(btn.dataset.filter)));</p>
+<p class="p1"><span class="Apple-converted-space">                </span>gameFilters.querySelectorAll('button').forEach(btn =&gt; btn.classList.toggle('text-white', activeGameFilters.includes(btn.dataset.filter)));</p>
+<p class="p1"><span class="Apple-converted-space">                </span>gameFilters.querySelectorAll('button').forEach(btn =&gt; btn.classList.toggle('bg-stone-200', !activeGameFilters.includes(btn.dataset.filter)));</p>
+<p class="p1"><span class="Apple-converted-space">                </span>gameFilters.querySelectorAll('button').forEach(btn =&gt; btn.classList.toggle('text-stone-700', !activeGameFilters.includes(btn.dataset.filter)));</p>
+<p class="p1"><span class="Apple-converted-space">                </span>renderGames(activeGameFilters);</p>
+<p class="p1">});</p>
+<p class="p1"><span class="Apple-converted-space">            </span>renderGames(activeGameFilters);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>const nutritionGrid = document.getElementById('nutrition-grid');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>data.nutrition.forEach(item =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const card = document.createElement('div');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>card.className = 'text-center bg-white border border-stone-200 rounded-lg p-3';</p>
+<p class="p1"><span class="Apple-converted-space">                </span>card.innerHTML = `&lt;div class="text-4xl"&gt;${item.emoji}&lt;/div&gt;&lt;div class="font-bold text-md text-stone-800 mt-2"&gt;${item.name}&lt;/div&gt;&lt;div class="text-xs text-teal-700 font-medium"&gt;${item.nutrients}&lt;/div&gt;`;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>nutritionGrid.appendChild(card);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>const brainCtx = document.getElementById('brainDevChart').getContext('2d');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>new Chart(brainCtx, {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>type: 'bar',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>data: {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>labels: ['0-3歲 (奠基期)', '3-6歲 (萌芽期)', '6-10歲 (整合期)'],</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>datasets: [ { label: '感官與動作發展', data: [90, 95, 100], backgroundColor: 'rgba(251, 191, 36, 0.6)' }, { label: '語言發展', data: [50, 85, 95], backgroundColor: 'rgba(56, 189, 248, 0.6)' }, { label: '高級認知功能 (理智腦)', data: [15, 40, 70], backgroundColor: 'rgba(16, 185, 129, 0.6)' } ]</p>
+<p class="p1"><span class="Apple-converted-space">                </span>},</p>
+<p class="p1"><span class="Apple-converted-space">                </span>options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom' } }, scales: { y: { beginAtZero: true, max: 100, ticks: { callback: value =&gt; value + '%' }, title: { display: true, text: '相對成熟度' } } } }</p>
+<p class="p1"><span class="Apple-converted-space">            </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// --- Gemini API Call Function ---</p>
+<p class="p1"><span class="Apple-converted-space">            </span>async function callGemini(prompt, loaderElement, resultElement) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>loaderElement.style.display = 'flex';</p>
+<p class="p1"><span class="Apple-converted-space">                </span>resultElement.style.display = 'none';</p>
+<p class="p1"><span class="Apple-converted-space">                </span>resultElement.textContent = '';</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>let chatHistory = [];</p>
+<p class="p1"><span class="Apple-converted-space">                </span>chatHistory.push({ role: "user", parts: [{ text: prompt }] });</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const payload = { contents: chatHistory };</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const apiKey = "";<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>try {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>const response = await fetch(apiUrl, {</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>method: 'POST',</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>headers: { 'Content-Type': 'application/json' },</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>body: JSON.stringify(payload)</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>if (!response.ok) throw new Error(`API請求失敗，狀態碼：${response.status}`);</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>const result = await response.json();</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>if (result.candidates &amp;&amp; result.candidates[0]?.content?.parts[0]?.text) {</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>resultElement.textContent = result.candidates[0].content.parts[0].text;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>throw new Error('從API收到的回應格式無效。');</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">                </span>} catch (error) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>console.error('Gemini API 呼叫錯誤:', error);</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>resultElement.textContent = `抱歉，發生錯誤：${error.message} 請稍後再試。`;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>} finally {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>loaderElement.style.display = 'none';</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>resultElement.style.display = 'block';</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('get-scenario-advice').addEventListener('click', () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const scenarioInput = document.getElementById('scenario-input').value;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (!scenarioInput.trim()) { alert('請先描述您遇到的情境！'); return; }</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const prompt = `你是一位專業且有同理心的兒童心理學家，專精於丹尼爾·席格 (Daniel J. Siegel) 的「全腦教養法」。一位家長正向你尋求協助，以下是他們描述的情境：「${scenarioInput}」。請根據「樓上/樓下大腦」的框架，用溫暖且具支持性的語氣，提供包含以下兩個部分的回應：\n\n1.<span class="Apple-converted-space">  </span>**【大腦狀態解讀】**：首先，簡要分析在這個情境中，孩子的「樓下大腦」（情緒、本能）和「樓上大腦」（理性、調節）可能發生了什麼事。請用簡單易懂的比喻說明。\n\n2.<span class="Apple-converted-space">  </span>**【同理心應對策略】**：接著，提供2-3個具體的、可操作的步驟建議。這些建議必須基於「先連結、再引導」(Connect and Redirect) 的核心原則，幫助家長先安撫孩子的情緒，再處理行為問題。\n\n請確保你的回應是實用的、有同理心的，並且能賦予家長信心。`;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>callGemini(prompt, document.getElementById('scenario-loader'), document.getElementById('scenario-result'));</p>
+<p class="p1"><span class="Apple-converted-space">            </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('get-activity-ideas').addEventListener('click', () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const age = document.getElementById('activity-age').value;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const skill = document.getElementById('activity-skill').value;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const prompt = `你是一位富有創意且經驗豐富的幼兒教育專家。請為一位「${age}」的孩子，設計3個能夠促進「${skill}」發展的親子活動。\n\n你的建議需要符合以下要求：\n- **簡單有趣**：活動要能吸引孩子的注意力。\n- **低成本**：盡量使用家中常見的材料。\n- **具體步驟**：為每個活動提供簡單的玩法說明。\n- **發展目標**：簡要說明每個活動如何幫助孩子提升指定的「${skill}」能力。\n\n請用清單的方式，活潑生動地呈現這3個活動點子。`;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>callGemini(prompt, document.getElementById('activity-loader'), document.getElementById('activity-result'));</p>
+<p class="p1"><span class="Apple-converted-space">            </span>});</p>
+<p class="p1"><span class="Apple-converted-space">        </span>});</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
